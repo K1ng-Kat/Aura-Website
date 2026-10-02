@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07080d">
-  <meta name="description" content="Aura support and help information.">
-  <title>Support — Aura</title>
-  <link rel="icon" href="./assets/aura-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css"><script defer src="./script.js"></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
+  <meta name="description" content="Aura support notes."><title>Support — Aura</title>
+  <link rel="icon" href="./assets/aura-app.jpg" type="image/jpeg"><link rel="stylesheet" href="./styles.css"><script defer src="./script.js"></script>
 </head>
 <body>
-  <header class="site-header" data-header><div class="nav-wrap glass"><a class="brand" href="./index.html"><span class="brand-mark"><span></span></span><span>Aura</span></a><nav class="desktop-nav"><a href="./index.html#features">Features</a><a href="./index.html#screensaver">Screen Saver</a><a href="./index.html#pricing">Pricing</a></nav><div class="nav-actions"><a class="button button-small button-secondary" href="./index.html">Back to Aura</a><button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button><span></span><span></span></button></div></div><nav class="mobile-nav glass" data-mobile-menu><a href="./index.html">Home</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></nav></header>
-  <main class="section-shell">
-    <section class="page-hero reveal"><div class="eyebrow">Support</div><h1>Help without the maze.</h1><p>Aura is being built to keep common setup and troubleshooting inside the app. This page covers the main places to start.</p></section>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="./index.html"><img src="./assets/aura-app.jpg" alt="" width="28" height="28"><span>Aura</span></a><nav class="desktop-nav"><a href="./index.html#app">App</a><a href="./index.html#schedule">Schedule</a><a href="./index.html#screensaver">Screen Saver</a><a href="./privacy.html">Privacy</a></nav><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-button><span></span><span></span></button></div><nav class="mobile-nav" data-mobile-menu><a href="./index.html">Home</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></nav></header>
+  <main class="page-width">
+    <section class="page-hero"><div class="eyebrow">Support</div><h1>Start with the part of Aura that is giving you trouble.</h1><p>Aura is still in development. These notes match the current app behavior and will change as the app changes.</p></section>
     <section class="support-grid">
-      <article class="support-card reveal"><span>▧</span><h2>Wallpaper library</h2><p>If a local video is unavailable after it moves, re-add it from Aura Library so macOS can grant access to the file's new location.</p><a href="./index.html#features">Explore Aura features →</a></article>
-      <article class="support-card reveal"><span>◉</span><h2>Smart Visibility</h2><p>Smart Visibility uses window geometry rather than screen recording. If behavior feels unexpected, check Aura's Smart Visibility settings and coverage threshold.</p><a href="./privacy.html">Read the privacy details →</a></article>
-      <article class="support-card reveal"><span>▱</span><h2>Screen Saver Studio</h2><p>Build the canvas in Aura, preview it live, and apply changes when you're finished. Unapplied edits can be discarded if you leave the editor.</p><a href="./index.html#screensaver">See Screen Saver Studio →</a></article>
-      <article class="support-card reveal"><span>◷</span><h2>Schedules</h2><p>Aura can use normal clock times and, with supported features, natural-light events such as sunrise, golden hour, sunset, and twilight.</p><a href="./index.html#features">See scheduling →</a></article>
-      <article class="support-card reveal"><span>▣</span><h2>Displays</h2><p>Display behavior can vary with connected monitors and macOS Spaces. Aura includes display-aware controls so you can tune output for your setup.</p><a href="./index.html#features">See display features →</a></article>
-      <article class="support-card reveal"><span>⚙</span><h2>Reset and recovery</h2><p>Resetting Aura clears Aura's references and settings. It does not delete your original videos or Apple's wallpaper files.</p><a href="./privacy.html">What Aura stores →</a></article>
+      <article class="support-card"><h2>Wallpaper Library</h2><p>If a local video was moved or renamed, add it again from Aura Library so macOS can grant access to the new location.</p><a href="./privacy.html">Why Aura asks for file access →</a></article>
+      <article class="support-card"><h2>Smart Visibility</h2><p>Smart Visibility estimates how much of the desktop is covered using normal window geometry. Adjust the pause and resume thresholds in Aura if it pauses too early or too late.</p></article>
+      <article class="support-card"><h2>Schedule</h2><p>Scenes can use normal clock times or supported solar events. If a solar event looks wrong, check the schedule entry and its before/after offset.</p><a href="./index.html#schedule">See how scheduling works →</a></article>
+      <article class="support-card"><h2>Screen Saver</h2><p>Use the editor to position elements, then apply the result. Screen Saver Match uses a local working copy so the companion screen saver can read the current Aura scene.</p><a href="./index.html#screensaver">See the editor →</a></article>
+      <article class="support-card"><h2>Apple Wallpapers</h2><p>Aura only sees compatible Apple wallpaper videos that macOS has already downloaded. If nothing appears, download an animated wallpaper in System Settings and rescan.</p></article>
+      <article class="support-card"><h2>Reset</h2><p>Resetting Aura clears Aura’s library references, schedule, and settings. It does not delete your original videos or Apple’s wallpaper files.</p></article>
     </section>
   </main>
-  <footer class="site-footer section-shell"><div class="footer-main"><div class="footer-brand"><span class="brand-mark"><span></span></span><div><b>Aura</b><small>Your desktop, alive.</small></div></div><div class="footer-links"><a href="./support.html">Support</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></div></div><div class="footer-bottom"><span>© <span data-year></span> Aura. Built for macOS.</span><span>Not affiliated with Apple Inc.</span></div></footer>
-</body></html>
+  <footer class="site-footer page-width"><div class="footer-brand"><img src="./assets/aura-app.jpg" alt="" width="32" height="32"><div><strong>Aura</strong><span>Native macOS wallpaper utility</span></div></div><nav><a href="./support.html">Support</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></nav><p>© <span data-year></span> Aura. Independent project. Not affiliated with Apple Inc.</p></footer>
+</body>
+</html>
