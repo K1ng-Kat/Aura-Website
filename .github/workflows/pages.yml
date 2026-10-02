@@ -1,21 +1,19 @@
-name: Aura Website
+name: Website Checks
 
 on:
   push:
     branches: [main]
     paths:
-      - 'site/**'
+      - 'docs/**'
+      - '.github/workflows/pages.yml'
+  pull_request:
+    paths:
+      - 'docs/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: aura-website-pages
-  cancel-in-progress: false
 
 jobs:
   validate:
@@ -32,7 +30,7 @@ jobs:
           from urllib.parse import urlparse
           import sys
 
-          root = Path("site").resolve()
+          root = Path("docs").resolve()
           required = [
               "index.html", "styles.css", "script.js", "privacy.html",
               "terms.html", "support.html", "404.html", "robots.txt",
@@ -93,27 +91,3 @@ jobs:
               sys.exit(1)
 
           print(f"Validated {len(pages)} HTML pages and all required local assets.")
-
-  deploy:
-    needs: validate
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - name: Upload website
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: site
-
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v5
