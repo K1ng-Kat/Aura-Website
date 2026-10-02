@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07080d">
+  <meta name="description" content="Aura privacy information.">
+  <title>Privacy — Aura</title>
+  <link rel="icon" href="./assets/aura-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css"><script defer src="./script.js"></script>
+</head>
+<body>
+  <header class="site-header" data-header><div class="nav-wrap glass"><a class="brand" href="./index.html"><span class="brand-mark"><span></span></span><span>Aura</span></a><nav class="desktop-nav"><a href="./index.html#features">Features</a><a href="./index.html#screensaver">Screen Saver</a><a href="./index.html#pricing">Pricing</a></nav><div class="nav-actions"><a class="button button-small button-secondary" href="./index.html">Back to Aura</a><button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button><span></span><span></span></button></div></div><nav class="mobile-nav glass" data-mobile-menu><a href="./index.html">Home</a><a href="./support.html">Support</a><a href="./terms.html">Terms</a></nav></header>
+  <main class="section-shell">
+    <section class="page-hero reveal"><div class="eyebrow">Privacy</div><h1>Built to stay on your Mac.</h1><p>Aura is designed around local files and local processing. This page explains what Aura reads, what it stores, and what it does not upload.</p></section>
+    <article class="legal-card glass reveal">
+      <h2>Video files</h2><p>Videos added through Finder remain in their original location. Aura stores a read-only security-scoped bookmark so the sandboxed app can reopen a selected file after relaunch. <strong>Aura does not upload user videos.</strong></p>
+      <h2>Smart Visibility</h2><p>To decide whether a moving wallpaper should pause, Aura reads the on-screen geometry of normal application windows through Core Graphics. Aura uses window rectangles, layer numbers, and opacity information for this calculation.</p><p>Aura does not capture window pixels, take screenshots, read text from other apps, record the screen, or upload window information as part of Smart Visibility.</p>
+      <h2>Apple Wallpapers</h2><p>The Apple Wallpapers browser reads wallpaper videos and metadata already downloaded by macOS. Aura does not edit, replace, or delete Apple's wallpaper assets. When sandbox access requires it, Aura asks you to select the relevant folder and stores a read-only security-scoped bookmark.</p><p>High-resolution poster images are generated locally from downloaded video files and stored only in Aura's cache directory.</p>
+      <h2>Screen Saver Match</h2><p>When Screen Saver Match is enabled, Aura creates a local working copy of the current scene in Aura's Application Support directory. The Aura Screen Saver companion reads that copy instead of requesting access to the original video. Disabling Screen Saver Match removes the synced working video.</p>
+      <h2>Network activity</h2><p>Aura's core wallpaper, scheduling, Smart Visibility, Apple-wallpaper discovery, and screen-saver features are designed to work without an Aura server or user account.</p>
+      <h2>Analytics and advertising</h2><p>The current Aura implementation does not include third-party analytics, advertising SDKs, or tracking SDKs.</p>
+      <h2>Reset</h2><p>Resetting Aura clears Aura's scene and settings references. It does not delete your original videos or Apple's wallpaper files.</p>
+      <h2>Changes</h2><p>This privacy page may be updated as Aura evolves. Material changes will be reflected here before or alongside the relevant release.</p>
+    </article>
+  </main>
+  <footer class="site-footer section-shell"><div class="footer-main"><div class="footer-brand"><span class="brand-mark"><span></span></span><div><b>Aura</b><small>Your desktop, alive.</small></div></div><div class="footer-links"><a href="./support.html">Support</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></div></div><div class="footer-bottom"><span>© <span data-year></span> Aura. Built for macOS.</span><span>Not affiliated with Apple Inc.</span></div></footer>
+</body></html>

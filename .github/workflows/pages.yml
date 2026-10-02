@@ -1,0 +1,119 @@
+name: Aura Website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: aura-website-pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate static website
+        shell: python
+        run: |
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse
+          import sys
+
+          root = Path("site").resolve()
+          required = [
+              "index.html", "styles.css", "script.js", "privacy.html",
+              "terms.html", "support.html", "404.html", "robots.txt",
+              "sitemap.xml", "assets/aura-mark.svg", ".nojekyll"
+          ]
+          missing = [name for name in required if not (root / name).is_file()]
+          if missing:
+              raise SystemExit(f"Missing required site files: {missing}")
+
+          errors = []
+
+          class Links(HTMLParser):
+              def __init__(self, page):
+                  super().__init__()
+                  self.page = page
+
+              def check(self, value, kind):
+                  if not value or value.startswith(("#", "mailto:", "tel:", "data:", "javascript:")):
+                      return
+                  parsed = urlparse(value)
+                  if parsed.scheme or parsed.netloc:
+                      return
+                  target = value.split("#", 1)[0].split("?", 1)[0]
+                  if not target:
+                      return
+                  candidate = (self.page.parent / target).resolve()
+                  try:
+                      candidate.relative_to(root)
+                  except ValueError:
+                      errors.append(f"{self.page}: local {kind} escapes site root: {value}")
+                      return
+                  if candidate.is_dir():
+                      candidate = candidate / "index.html"
+                  if not candidate.exists():
+                      errors.append(f"{self.page}: broken local {kind}={value}")
+
+              def handle_starttag(self, tag, attrs):
+                  values = dict(attrs)
+                  for key in ("href", "src"):
+                      if key in values:
+                          self.check(values[key], key)
+
+          pages = list(root.rglob("*.html"))
+          for page in pages:
+              parser = Links(page)
+              parser.feed(page.read_text(encoding="utf-8"))
+
+          expected = "https://k1ng-kat.github.io/Aura-Website/"
+          if expected not in (root / "index.html").read_text(encoding="utf-8"):
+              errors.append("index.html is missing the production GitHub Pages URL")
+          if expected not in (root / "robots.txt").read_text(encoding="utf-8"):
+              errors.append("robots.txt points at the wrong site")
+          if expected not in (root / "sitemap.xml").read_text(encoding="utf-8"):
+              errors.append("sitemap.xml points at the wrong site")
+
+          if errors:
+              print("\n".join(errors))
+              sys.exit(1)
+
+          print(f"Validated {len(pages)} HTML pages and all required local assets.")
+
+  deploy:
+    needs: validate
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5
