@@ -124,6 +124,14 @@ img { display: block; }
 .small-note { margin: 18px 0 0; color: var(--tertiary); font-size: 12px; }
 
 .app-showcase { padding: 26px 0 112px; }
+.hero-app-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--window-shadow);
+}
 .mac-window, .product-window {
   overflow: hidden;
   border: 1px solid var(--line);
