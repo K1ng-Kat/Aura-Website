@@ -126,11 +126,13 @@ img { display: block; }
 .app-showcase { padding: 26px 0 112px; }
 .hero-app-screenshot {
   display: block;
-  width: 100%;
+  width: min(100%, 936px);
   height: auto;
+  margin-inline: auto;
   border-radius: 18px;
   border: 1px solid var(--line);
   box-shadow: var(--window-shadow);
+  image-rendering: auto;
 }
 .mac-window, .product-window {
   overflow: hidden;
