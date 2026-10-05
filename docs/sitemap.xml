@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://k1ng-kat.github.io/Aura-Website/</loc></url>
-  <url><loc>https://k1ng-kat.github.io/Aura-Website/support.html</loc></url>
-  <url><loc>https://k1ng-kat.github.io/Aura-Website/privacy.html</loc></url>
-  <url><loc>https://k1ng-kat.github.io/Aura-Website/terms.html</loc></url>
+  <url><loc>https://aura-macos.vercel.app/</loc></url>
+  <url><loc>https://aura-macos.vercel.app/pricing</loc></url>
+  <url><loc>https://aura-macos.vercel.app/support</loc></url>
+  <url><loc>https://aura-macos.vercel.app/privacy</loc></url>
+  <url><loc>https://aura-macos.vercel.app/terms</loc></url>
+  <url><loc>https://aura-macos.vercel.app/refunds</loc></url>
 </urlset>
