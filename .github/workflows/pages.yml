@@ -32,7 +32,7 @@ jobs:
 
           root = Path("docs").resolve()
           required = [
-              "index.html", "styles.css", "script.js", "privacy.html",
+              "index.html", "styles.css", "script.js", "checkout.html", "checkout.js", "privacy.html",
               "terms.html", "support.html", "404.html", "robots.txt",
               "sitemap.xml", "assets/aura-mark.svg", ".nojekyll"
           ]
