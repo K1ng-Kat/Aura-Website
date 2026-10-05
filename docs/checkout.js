@@ -6,8 +6,8 @@
       lifetime: "pri_01m44vhcrws4p0vgnq6avgpq7d"
     },
     display: {
-      monthly: { name: "Monthly", price: "$2.99", totalLabel: "Due today" },
-      lifetime: { name: "Lifetime", price: "$15.99", totalLabel: "Due today" }
+      monthly: { name: "Monthly", price: "$1.99", totalLabel: "Due today" },
+      lifetime: { name: "Lifetime", price: "$14.49", totalLabel: "Due today" }
     }
   };
 
