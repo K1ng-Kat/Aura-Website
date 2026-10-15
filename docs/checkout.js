@@ -2,16 +2,12 @@
   const config = {
     clientToken: "",
     prices: {
-      // Web checkout is disabled until actual products match current pricing.
-      // Do not reuse the previous product-price IDs without revalidating live amounts.
-      monthly: "",
-      yearly: "",
-      lifetime: ""
+      monthly: "pri_01m44vf3jc6j3pc9t6r7kgtx6e",
+      lifetime: "pri_01m44vhcrws4p0vgnq6avgpq7d"
     },
     display: {
-      monthly: { name: "Monthly", price: "$2.99", totalLabel: "Payment unavailable" },
-      yearly: { name: "Yearly", price: "$29.99/year", totalLabel: "Billed in-app by Apple" },
-      lifetime: { name: "Lifetime", price: "$49.99", totalLabel: "Payment unavailable" }
+      monthly: { name: "Monthly", price: "$1.99", totalLabel: "Due today" },
+      lifetime: { name: "Lifetime", price: "$14.49", totalLabel: "Due today" }
     }
   };
 
@@ -27,7 +23,7 @@
   if (!plans.length || !button) return;
 
   const queryPlan = new URLSearchParams(window.location.search).get("plan");
-  let selectedPlan = Object.prototype.hasOwnProperty.call(config.display, queryPlan) ? queryPlan : "monthly";
+  let selectedPlan = queryPlan === "lifetime" ? "lifetime" : "monthly";
 
   const render = () => {
     plans.forEach(plan => {
@@ -41,11 +37,6 @@
     summaryPrice.textContent = info.price;
     total.textContent = info.price;
     totalLabel.textContent = info.totalLabel;
-    button.disabled = true;
-    buttonLabel.textContent = "Web checkout unavailable";
-    status.textContent = selectedPlan === "yearly"
-      ? "Yearly offers 7 days free only to eligible customers, then $29.99/year with automatic renewal unless canceled. The Mac App Store handles the purchase and trial."
-      : "Aura Pro purchases are handled in-app through Apple's Mac App Store. Web checkout is not yet active.";
 
     const url = new URL(window.location.href);
     url.searchParams.set("plan", selectedPlan);
@@ -60,9 +51,9 @@
   });
 
   const enablePaddle = () => {
-    if (!config.clientToken || !config.prices[selectedPlan] || !window.Paddle) {
+    if (!config.clientToken || !window.Paddle) {
       button.disabled = true;
-      buttonLabel.textContent = "Web checkout unavailable";
+      buttonLabel.textContent = "Secure checkout activating";
       return;
     }
 
@@ -84,7 +75,7 @@
   };
 
   button.addEventListener("click", () => {
-    if (button.disabled || !window.Paddle || !config.prices[selectedPlan]) return;
+    if (button.disabled || !window.Paddle) return;
 
     window.Paddle.Checkout.open({
       items: [{ priceId: config.prices[selectedPlan], quantity: 1 }],
