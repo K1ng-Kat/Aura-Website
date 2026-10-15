@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07080d">
-  <meta name="description" content="Secure Aura Pro web checkout for monthly and lifetime plans, processed by Paddle.">
+  <meta name="description" content="Aura Pro pricing: $2.99 Monthly, $29.99 Yearly with eligible seven-day trial, and $49.99 Lifetime. Web purchases not yet enabled.">
   <title>Checkout — Aura</title>
   <link rel="icon" href="./assets/aura-favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
@@ -35,20 +35,26 @@
     <section class="page-hero checkout-hero reveal">
       <div class="eyebrow">Aura Pro Checkout</div>
       <h1>Choose your Aura Pro plan.</h1>
-      <p>Both plans unlock the same Pro features. Secure web checkout is processed by Paddle, Aura's Merchant of Record.</p>
+      <p>Monthly, Yearly and Lifetime unlock the same Pro features. Prices below are for Mac App Store purchases; web checkout is not yet active.</p>
     </section>
 
     <section class="checkout-layout reveal">
       <div class="checkout-plans">
         <button class="checkout-plan glass" type="button" data-checkout-plan="monthly" aria-pressed="true">
           <span class="checkout-plan-top"><span class="tag">MONTHLY</span><span class="checkout-check">✓</span></span>
-          <strong>$1.99 <small>/ month</small></strong>
+          <strong>$2.99 <small>/ month</small></strong>
           <p>Full Aura Pro access with automatic monthly renewal. Cancel future renewals at any time.</p>
+        </button>
+
+        <button class="checkout-plan glass" type="button" data-checkout-plan="yearly" aria-pressed="false">
+          <span class="checkout-plan-top"><span class="tag">YEARLY · SAVE 16%</span><span class="checkout-check">✓</span></span>
+          <strong>$29.99 <small>/ year</small></strong>
+          <p>7 days free for eligible new subscribers. Then $29.99/year, automatically renews yearly unless canceled. Trial available through Apple's Mac App Store only.</p>
         </button>
 
         <button class="checkout-plan glass" type="button" data-checkout-plan="lifetime" aria-pressed="false">
           <span class="checkout-plan-top"><span class="tag">LIFETIME</span><span class="checkout-check">✓</span></span>
-          <strong>$14.49 <small>one time</small></strong>
+          <strong>$49.99 <small>one time</small></strong>
           <p>Pay once for lifetime Aura Pro access to the supported Aura product.</p>
         </button>
       </div>
@@ -57,12 +63,12 @@
         <span class="plan-label">ORDER SUMMARY</span>
         <div class="checkout-summary-row">
           <div><b>Aura Pro</b><small data-checkout-summary-name>Monthly</small></div>
-          <strong data-checkout-summary-price>$1.99</strong>
+          <strong data-checkout-summary-price>$2.99</strong>
         </div>
         <div class="checkout-divider"></div>
         <div class="checkout-summary-row checkout-total">
-          <div><b data-checkout-total-label>Due today</b><small>Taxes, if applicable, are calculated by Paddle at checkout.</small></div>
-          <strong data-checkout-total>$1.99</strong>
+          <div><b data-checkout-total-label>Payment unavailable</b><small>Final pricing, eligibility and taxes are confirmed by the purchase provider.</small></div>
+          <strong data-checkout-total>$2.99</strong>
         </div>
 
         <button class="button button-primary checkout-button" type="button" data-checkout-button disabled>
@@ -70,12 +76,12 @@
         </button>
 
         <p class="checkout-status" data-checkout-status>
-          Aura's Paddle production checkout is being activated. This page is ready to launch secure checkout as soon as the production client token is enabled.
+          Web checkout is not yet available. Aura Pro purchases and eligible Yearly free trials are managed inside Aura through Apple's Mac App Store.
         </p>
 
         <div class="checkout-trust">
-          <span>🔒 Secure Paddle checkout</span>
-          <span>Taxes calculated at checkout</span>
+          <span>🔒 No payment collected here</span>
+          <span>Final price shown by Apple in-app</span>
           <span>No card details stored by Aura</span>
         </div>
 
@@ -108,7 +114,7 @@
       <div class="footer-brand"><span class="brand-mark"><span></span></span><div><b>Aura</b><small>Your desktop, alive.</small></div></div>
       <div class="footer-links"><a href="./pricing.html">Pricing</a><a href="./support.html">Support</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./refunds.html">Refunds</a></div>
     </div>
-    <div class="footer-bottom"><span>© <span data-year></span> Aura. Built for macOS.</span><span>Purchases processed by Paddle · Not affiliated with Apple Inc.</span></div>
+    <div class="footer-bottom"><span>© <span data-year></span> Aura. Built for macOS.</span><span>App Store purchases processed by Apple · Separate website purchases, if offered, by Paddle</span></div>
   </footer>
 </body>
 </html>
