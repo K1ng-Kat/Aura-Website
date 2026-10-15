@@ -3,7 +3,7 @@
     clientToken: "",
     prices: {
       // Web checkout is disabled until actual products match current pricing.
-      // Do not reuse the previous price IDs with the former $1.99/$14.49 pricing.
+      // Do not reuse the previous product-price IDs without revalidating live amounts.
       monthly: "",
       yearly: "",
       lifetime: ""
