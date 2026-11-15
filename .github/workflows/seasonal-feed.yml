@@ -1,0 +1,26 @@
+name: Validate public seasonal feed
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/seasonal-icons/**'
+      - 'scripts/validate_seasonal_manifest.py'
+      - '.github/workflows/seasonal-feed.yml'
+  pull_request:
+    paths:
+      - 'docs/seasonal-icons/**'
+      - 'scripts/validate_seasonal_manifest.py'
+      - '.github/workflows/seasonal-feed.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout published site
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d275973a654f90 # v4.2.2
+      - name: Validate seasonal entries and image SHA-256
+        run: python3 scripts/validate_seasonal_manifest.py
